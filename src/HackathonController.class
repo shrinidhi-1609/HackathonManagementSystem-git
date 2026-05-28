@@ -1,0 +1,52 @@
+// Source code is decompiled from a .class file using FernFlower decompiler (from Intellij IDEA).
+class HackathonController {
+   Team[] teams;
+   int count;
+
+   HackathonController(int var1) {
+      this.teams = new Team[var1];
+      this.count = 0;
+   }
+
+   void addTeam(int var1, String var2, String var3, int var4) {
+      this.teams[this.count++] = new Team(var1, var2, var3, var4);
+   }
+
+   Team[] getTeams() {
+      return this.teams;
+   }
+
+   int getCount() {
+      return this.count;
+   }
+
+   Team findTeam(String var1) {
+      for(int var2 = 0; var2 < this.count; ++var2) {
+         if (this.teams[var2].teamName.equalsIgnoreCase(var1)) {
+            return this.teams[var2];
+         }
+      }
+
+      return null;
+   }
+
+   String addMember(String var1) {
+      Team var2 = this.findTeam(var1);
+      if (var2 == null) {
+         return "Team Not Found";
+      } else {
+         ++var2.members;
+         return "Member Added Successfully";
+      }
+   }
+
+   String updateStatus(String var1, String var2) {
+      Team var3 = this.findTeam(var1);
+      if (var3 == null) {
+         return "Team Not Found";
+      } else {
+         var3.projectStatus = var2;
+         return "Project Status Updated";
+      }
+   }
+}

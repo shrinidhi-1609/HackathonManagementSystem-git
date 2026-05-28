@@ -1,0 +1,44 @@
+// Source code is decompiled from a .class file using FernFlower decompiler (from Intellij IDEA).
+import java.util.Scanner;
+
+class HackathonView {
+   Scanner sc;
+
+   HackathonView() {
+      this.sc = new Scanner(System.in);
+   }
+
+   void showMenu() {
+      System.out.println("\n===== Hackathon Team Management =====");
+      System.out.println("1. Display Teams");
+      System.out.println("2. Search Team");
+      System.out.println("3. Add Member");
+      System.out.println("4. Update Project Status");
+      System.out.println("5. Exit");
+   }
+
+   int getChoice() {
+      System.out.print("Enter Choice: ");
+      return this.sc.nextInt();
+   }
+
+   String getInput(String var1) {
+      this.sc.nextLine();
+      System.out.print(var1);
+      return this.sc.nextLine();
+   }
+
+   void displayTeams(Team[] var1, int var2) {
+      System.out.println("\n--- Team Details ---");
+
+      for(int var3 = 0; var3 < var2; ++var3) {
+         int var10001 = var1[var3].id;
+         System.out.println(var10001 + " | " + var1[var3].teamName + " | " + var1[var3].leader + " | Members: " + var1[var3].members + " | Status: " + var1[var3].projectStatus);
+      }
+
+   }
+
+   void showMessage(String var1) {
+      System.out.println(var1);
+   }
+}
